@@ -14,6 +14,7 @@ resetChoices();
 
 var player1 = false;
 var player2 = false;
+var name = 'No Name';
 var player1Wins = 0;
 var player2Wins = 0;
 var player1Losses = 0;
@@ -30,6 +31,9 @@ database.ref().child('initialize').set({
 function printInitial() {
 	$('<input id="name-input" placeholder="Name">').appendTo('#name-form');
 	$('<button id="name-submit">').text('Start').appendTo('#name-form');
+	if (name === 'No Name') {
+		$('#player2, #player1').css('pointerEvents', 'none');
+	}
 }
 
 database.ref().once('value', function(snapshot) {
@@ -57,33 +61,36 @@ function updatePlayer2(snapshot) {
 }
 
 function choose() {
-	$(document.body).on('click', div.choice, function() {
-		console.log($(this.attr('id')));
-		if ($(this).prop('id') === 'p1-choice') {
-			player1Choice = $(this).html();
-			console.log(player1Choice);
-			database.ref().player_1.choice.set({
-				choice: player1Choice
+	$(document.body).on('click', 'div.choices', function(event) {
+		var chosenID = $(this).parent().attr('id');
+		var choice = $(this).html();
+		if (chosenID === 'p1-choice') {
+			player1Choice = choice;
+			database.ref().child('player_1').update({
+				choice: choice
 			});
-		} else if ($(this).prop('id') === 'p2-choice') {
-			player2Choice = $(this).html();
-			database.ref().player_2.choice.set({
-				choice: player2Choice
+			$('#p1-choice').css('fontSize', '36px').html(choice);
+		} else if (chosenID === 'p2-choice') {
+			player2Choice = choice;
+			database.ref().child('player_2').update({
+				choice: choice
 			});
+			$('#p2-choice').css('fontSize', '36px').html(choice);
 		}
 	});
 }
 
 function resetChoices() {
 	$('.choice').empty();
-	$('<div id="rock">').html('Rock').appendTo('.choice');
-	$('<div id="paper">').html('Paper').appendTo('.choice');
-	$('<div id="scissors">').html('Scissors').appendTo('.choice');
+	$('<div id="rock" class="choices">').html('Rock').appendTo('.choice');
+	$('<div id="paper" class="choices">').html('Paper').appendTo('.choice');
+	$('<div id="scissors" class="choices">').html('Scissors').appendTo('.choice');
 }
 
 function storeName() {
 	$(document).on('click', 'button#name-submit', function() {
-		var name = $('#name-input').val().trim();
+		$('#player2, #player1').css('pointerEvents', 'auto');
+		name = $('#name-input').val().trim();
 		database.ref().once('value', function(snapshot) {
 			if (snapshot.child("player_1").exists() && snapshot.child("player_2").exists()) {
 				alert("Queing for position... Try again soon.");
@@ -122,12 +129,27 @@ function storeName() {
 	});
 }
 
+function printChat() {
+	$(document).on('submit', 'form', function(event) {
+		event.preventDefault(); 
+		var message = ($('#chat-input').val().trim()) + '\n';
+		$('#chat-output').append(name + ': ' + message);
+		$('#chat-input').val('');
+	})
+}
+
+if (name === 'No Name') {
+	$('#player2, #player1').css('pointerEvents', 'none');
+}
 
 
 
 
+
+printChat();
 printInitial();
 storeName();
+choose();
 });
 
 
