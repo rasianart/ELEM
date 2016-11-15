@@ -12,6 +12,28 @@ var database = firebase.database();
 
 resetChoices();
 
+var player1Storage = {
+	player: false,
+	name: 'No Name',
+	playerWins: 0,
+	playerLosses: 0,
+	playerChoice: '',
+	oneOrTwo: 1,
+	answer: '',
+	answerOld: ''
+}
+
+var player2Storage = {
+	player: false,
+	name: 'No Name',
+	playerWins: 0,
+	playerLosses: 0,
+	playerChoice: '',
+	oneOrTwo: 1,
+	answer: '',
+	answerOld: ''
+};
+
 var player1 = false;
 var player2 = false;
 var name = 'No Name';
@@ -22,6 +44,10 @@ var player2Losses = 0;
 var player1Choice = '';
 var player2Choice = '';
 var oneOrTwo = 1;
+var answer1 = '';
+var answer2 = '';
+var answerOld1 = '';
+var answerOld2 = '';
 
 
 database.ref().child('initialize').set({
@@ -36,7 +62,46 @@ function printInitial() {
 	}
 }
 
-database.ref().once('value', function(snapshot) {
+database.ref().on('value', function(snapshot) {
+	answer1 = snapshot.val().player_1.choice;
+	answer2 = snapshot.val().player_2.choice;
+	if (player1New !=== player1Old && player2New !=== player2Old) {
+		if (answer1 === "rock" && answer2 === "paper") {
+			alert("Player 2 wins!");
+			p2score = p2score++;
+		}
+		else if (answer1 === "rock" && answer2 === "scissors") {
+			alert("Player 1 wins!");
+			p2score = p1score++;
+		}
+		else if (answer1 === "rock" && answer2 === "rock") {
+			alert("Tie");
+		}
+		else if (answer1 === "paper" && answer2 === "rock") {
+			alert("Player 1 wins!");
+			p2score = p1score++;
+		}
+		else if (answer1 === "paper" && answer2 === "paper") {
+			alert("Tie");
+		}
+		else if (answer1 === "paper" && answer2 === "scissors") {
+			alert("Player 2 wins!");
+			p2score = p1score++;
+		}
+		else if (answer1 === "scissors" && answer2 === "paper") {
+			alert("Player 1 wins!");
+			p2score = p1score++;
+		}
+		else if (answer1 === "scissors" && answer2 === "scissors") {
+			alert("Tie");
+		}
+		else if (answer1 === "scissors" && answer2 === "rock") {
+			alert("Player 2 wins!");
+			p2score = p1score++;
+		}
+	}
+	answerOld1 = answer1;
+	answerOld2 = answer2;
 	if (snapshot.child("player_1").exists() && snapshot.child("player_2").exists()) {
 		updatePlayer1(snapshot);
 		updatePlayer2(snapshot);
@@ -109,6 +174,7 @@ function storeName() {
 				$("#p1-name").html(snapshot.val().player_1.name);
 				$('#p2-name').html(name);
 				$('#player1').css('pointerEvents', 'none');
+				$('#name-input').val('');
 			} else {
 				player1 = true;
 				oneOrTwo = 1;
@@ -121,10 +187,9 @@ function storeName() {
 				});
 				$("#p1-name").html(name);
 				$('#player2').css('pointerEvents', 'none');
-
+				$('#name-input').val('');
 			} 
 		});
-		$('#name-input').val('');
 		return false;
 	});
 }
@@ -145,7 +210,6 @@ if (name === 'No Name') {
 
 
 
-
 printChat();
 printInitial();
 storeName();
@@ -160,63 +224,3 @@ choose();
 // make all consequential action be a part of the player's firebase object
 // firebase should just have two play objects, upon quit or loss, one players object is removed
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function storeName() {
-// 	$(document).on('click', 'button#name-submit', function() {
-// 		var name = $('#name-input').val().trim();
-// 		if (noPlayers) {
-// 			oneOrTwo = 1;
-// 			database.ref('player_1').set({
-// 				player1: name
-// 			});
-// 		} else {
-// 			oneOrTwo = 2;
-// 			database.ref('player_2').set({
-// 				player2: name
-// 			});
-// 		}
-
-// 		$('#name-input').val('');
-// 		$('#name-form').empty();
-// 		$('<div id="status">').text('Hi ' + name + '! You are player ' + oneOrTwo).appendTo('name-form');
-// 		noPlayers = false;
-// 		return false;
-// 	});
-// }
-
-// var adaRef = firebase.database().ref("prsc-47a9d/");
-// var key = adaRef.key;                 // key === "ada"
-// console.log(key);
-// key = adaRef.child("player1/lost").key;  // key === "last"
-// console.log(key);
-
-// var usersRef = firebase.database().ref('users');
-// var path = usersRef.parent.toString();
-		// if (database.ref().child('player_1') == null){
-		// 	player2 = true;
-		// 	database.ref().child('player_2').set({
-		// 			name: name
-		// 		});
-		// 	console.log(player2);
-		// } else {
-		// 	player1 = true;
-		// 	database.ref().child('player_1').set({
-		// 			name: name
-		// 		});
-		// 	console.log(player1);
-		// }
