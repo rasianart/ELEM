@@ -9,18 +9,19 @@ h1 {
 	text-align: center;
 	margin-top: 50px;
 	vertical-align: top;
-	position: absolute;
-	margin-left: 27%;
+	/*position: absolute;*/
+	margin-left: 19%;
 }
 #wrapper {
 	/*position: absolute;*/
 }
 #player1, #player2, #result {
 	border: 1px solid black;
-	width: 150px;
-	height: 100px;
-	display: inline-block;
+	width: 200px;
+	height: 150px;
+	float: left;
 	position: relative;
+	margin-left: 10px;
 }
 form {
 	margin-top: 250px;
@@ -35,6 +36,9 @@ textarea:focus{
 }
 #chat-input {
 	margin-top: 0px;
+}
+#chat-output {
+	overflow: auto;
 }
 #name-form {
 	margin-top: 25px;
