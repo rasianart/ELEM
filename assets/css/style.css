@@ -18,7 +18,7 @@ h1 {
 #player1, #player2, #result {
 	border: 1px solid black;
 	width: 200px;
-	height: 150px;
+	height: 125px;
 	float: left;
 	position: relative;
 	margin-left: 10px;
@@ -49,9 +49,15 @@ textarea:focus{
 .choice {
 	cursor: pointer;
 }
-#name-input{
-
+#result {
+	font-size: 36px;
+	padding-top: 20px;
 }
-#name-submit {
-
+#p1-name, #p2-name {
+	font-weight: bold;
+}
+.wins-losses {
+	font-size: 10px;
+	display: inline-block;
+	padding-top: 15px;
 }
