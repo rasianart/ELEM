@@ -1,10 +1,9 @@
 body {
-	background-image: url('images/ambient2.jpg');
+	background-image: url('images/ambient2B.jpg');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
 	background-size: 100%;
-	/*background-color: black;*/
 	color: white;
 	font-family: 'Bungee Hairline', cursive;
 }
@@ -16,13 +15,12 @@ body {
     overflow: auto;
     top: 0px;
     left: 0px;
-    background: rgba(50, 50, 59, 0.3); /*can be anything, of course*/
+    background: rgba(50, 50, 59, 0.3); 
 }
 button {
 	background-color: transparent;
 	border: none;
 	color: #b39f9f;
-	/*opacity: 0;*/
 }
 button:focus{
     outline: none;
@@ -30,66 +28,16 @@ button:focus{
 h1 {
 	text-align: center;
 	margin-bottom: 25px;
-	/*font-family: 'Exo 2', sans-serif;*/
 	opacity: 0;
 }
 #gamebox {
 	text-align: center;
 	margin-top: 50px;
 	vertical-align: top;
-	/*position: absolute;*/
 	margin-left: 27.5%;
 	width: 100%;
 }
-#wrapper {
-	/*position: absolute;*/
-}
-#player2 {
-	/*border: 1px solid black;*/
-	/*width: 100px;*/
-	/*height: 400px;*/
-/*	float: right;
-	position: relative;*/
-	/*margin-left: 10px;*/
-}
-
-
-#player1 {
-	/*border: 1px solid black;*/
-	/*width: 100px;*/
-	/*height: 400px;*/
-/*	float: left;
-	position: relative;*/
-	/*margin-left: 10px;*/
-}
-/*#p1-bar {
-	height: 100px;
-	background-color: transparent;
-	border: 1px solid white;
-	width: 0px;
-	position: absolute;
-	left: 0;
-	z-index: 2;
-	top: 0;
-	margin-top: 140px;
-	transition: all .5s ease-in-out;
-	border-radius: 20%;
-}
-#p2-bar {
-	height: 100px;
-	background-color: transparent;
-	border: 1px solid white;
-	width: 0px;
-	position: absolute;
-	right: 0;
-	z-index: 2;
-	top: 0;
-	margin-top: 140px;
-	transition: all .5s ease-in-out;
-	border-radius: 20%;
-}*/
 form {
-	/*margin-top: 50px;*/
 	text-align: center;
 }
 textarea {
@@ -108,40 +56,24 @@ textarea:focus{
 }
 #chat-output {
 	overflow: auto;
-
-	/*border: 2px solid white;*/
 }
-/*#a {
-	background-color: transparent;
-	border: none;
-	position: absolute;
-	z-index: 2;
-	left: 0;
-	margin-left: 250px;
-	width: 150px;
-}*/
 ::-webkit-input-placeholder { 
     color: white;
 }
 #name-input {
-	/*margin-top: 460px;*/
 	background-color: transparent;
 	border: none;
 	width: 93%;
 	letter-spacing: 6px;
 	display:inline-block;
 	text-align: center;
-	/*letter-spacing: 20px;*/
 }
 input:focus{
     outline: none;
 }
 #name-form {
-	/*margin-top: 25px;*/
-	/*margin-left: 42%;*/
 	text-align: center;
 	height: 26px;
-	/*font-family: 'Exo 2', sans-serif;*/
 	font-size: 18px;
 	position: absolute;
 	bottom: 0;
@@ -151,12 +83,10 @@ input:focus{
 }
 .choice {
 	cursor: pointer;
-	/*width: 100px;*/
 }
 .choices {
 	width: 100%;
 	height: 50px;
-	/*border-radius: 50%;*/
 	border: 1px solid white;
 	background-color: transparent;
 	text-align: center;
@@ -165,7 +95,6 @@ input:focus{
 #result {
 	font-size: 36px;
 	text-align: center;
-	/*padding-top: 15px;*/
 }
 #p1-name, #p2-name {
 	font-weight: bold;
@@ -193,7 +122,6 @@ form {
 	position: absolute;
 	z-index: 3;
 	left: 0;
-	/*top: 0;*/
 }
 .char-images {
 	width: 55%;
@@ -201,7 +129,6 @@ form {
 	margin-top: 50px;
 	border: 1px solid white;
 	height: 60px;
-	/*background-color: black;*/
 	float: left;
 }
 #image {
@@ -226,7 +153,6 @@ form {
 	float: left;
 	width: 15%;
 	height: 500px;
-	/*border: 1px solid white;*/
 	margin-top: 40px;
 	margin-left: 5%;
 }
@@ -236,8 +162,6 @@ form {
 	height: 225px;
 	border: 1px solid white;
 	text-align: center;
-	/*margin-top: 40px;*/
-	/*margin-left: 5%;*/
 	background-color: rgba(140,175,169, .2);
 }
 #player2 {
@@ -254,22 +178,13 @@ form {
 	float: left;
 	width: 35%;
 	height: 400px;
-	/*border: 1px solid white;*/
 	margin-top: 40px;
 	margin-left: 5%;
 }
 #enemy-profile {
-	/*float: left;*/
 	width: 100%;
 	height: 400px;
 	border: 1px solid white;
-	
-/*	padding-left: 25%;
-	padding-top: 50px;*/
-	/*background-attachment: fixed;*/
-	
-	/*margin-top: 40px;*/
-	/*margin-left: 5%;*/
 }
 #enemy-pic {
 	background-repeat: no-repeat;
@@ -279,7 +194,6 @@ form {
 }
 #enemy-stats {
 	width: 100%;
-	/*margin-top: 300px;*/
 	height: 100px;
 	border: 1px solid white;
 	background-color: rgba(140,175,169, .3);
@@ -293,7 +207,6 @@ form {
 #name-box {
 	width: 200px;
 	height: 35px;
-	/*background-color: grey;*/
 	border: 1px solid white;
 	margin-left: 15%;
 	margin-top: 75px;
@@ -305,7 +218,6 @@ form {
 #chat-text {
 	width: 100%;
 	margin-top: 50px;
-	/*padding-top: 50px;*/
 }
 #chat-input {
 	width: 100%;
@@ -314,12 +226,6 @@ form {
 	text-align: center;
 	padding-top: 5px;
 	height: 20px;
-}
-#stats {
-/*	width: 100%;
-	height: 150px;
-	border: 1px solid white;*/
-	/*margin-top: 100px;*/
 }
 .elements {
 	float: left;
@@ -331,10 +237,6 @@ form {
 	transform: scale(1);
     transition: all .5s;
 }
-/*.elements:hover {
-	border: 1px solid white;
-	border-radius: 50%;
-}*/
 #element1 {
 	background-image: url('images/element1.png');
 }
