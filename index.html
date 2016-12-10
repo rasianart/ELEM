@@ -5,38 +5,67 @@
   <title></title>
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
-  <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Rock+Salt|Trirong|Poiret+One|Share+Tech+Mono|VT323" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Bungee|Rock+Salt|Exo+2|Trirong|Poiret+One|Aref+Ruqaa|Share+Tech+Mono|Six+Caps|VT323" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://use.fontawesome.com/a0becfad23.js"></script>
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
+<div class="overlay"></div>
 	<div id="wrapper">
-		<h1>Rock Paper Scissors</h1>
-		<div id="name-form"></div>
-		<div id="gamebox">
-			<div id="player1">
-				<div id="p1-name" class="name">Waiting for Player 1</div>
-				<div id="p1-choice" class="choice"></div>
-				<div id="p1-wins" class="wins-losses"></div>
-				<div id="p1-losses" class="wins-losses"></div>
+		<div id="profile">
+			<div id="image"></div>
+			<div id="name-box">
+				<p id="p1-name">Waiting for Player 1
+					<div id="descript2"></div>
+				</p>
 			</div>
-			<div id="result"></div>
-			<div id="player2">
-				<div id="p2-name" class="name">Waiting for Player 2</div>
-				<div id="p2-choice" class="choice"></div>
-				<div id="p2-wins" class="wins-losses"></div>
-				<div id="p2-losses" class="wins-losses"></div>
+			<form>
+				<textarea id="chat-output" readonly rows="6" cols="25"></textarea>
+			</form>
+		</div>
+		<div id="big-contain">
+			<div id="result" class="char-images">
+				<div id="element1" class="elements" data-type="A Cold Bite"></div>
+				<div id="element2" class="elements" data-type="Dust becomes mud"></div>
+				<div id="element3" class="elements" data-type="Overtaken by Ivy"></div>
+				<div id="element4" class="elements" data-type="A blinding Light"></div>
+				<div id="element5" class="elements" data-type="A psychic manipulation"></div>
+				<div id="element6" class="elements" data-type="Inevitable Darkness"></div>
+				<div id="element7" class="elements" data-type="Molecular Distortions"></div>
+				<div id="element8" class="elements" data-type="Essence of Green"></div>
+				<div id="element9" class="elements" data-type="A Fluid Vortex"></div>
+				<div id="element10" class="elements" data-type="A Perfect Crystal"></div>
+			</div>
+			<div id="infos">
+				<div id="player1">
+					<div id="p1-choice" class="choice"></div>
+					<div id="p1-wins" class="wins-losses"></div>
+					<div id="p1-losses" class="wins-losses"></div>
+				</div>
+				<div id="player2">
+					<div id="p2-choice" class="choice"></div>
+					<div id="p2-wins" class="wins-losses"></div>
+					<div id="p2-losses" class="wins-losses"></div>
+				</div>
+			</div>
+			<div id="right-contain">
+				<div id="enemy-profile">
+					<div id="enemy-pic"></div>
+					<div id="enemy-stats">
+						<div id="p2-name">Waiting for Player 2</div>
+						<div id="descript"></div>
+					</div>
+				</div>
+				<form id="chat-text">
+					<input id="chat-input" autocomplete="off" type="text" placeholder="Chat">
+				</form>
 			</div>
 		</div>
-		<form>
-			<textarea id="chat-output" readonly rows="6" cols="75"></textarea>
-			<div id="enter">
-				<input id="chat-input" type="text" size="76">
-			</div>
-		</form>
-	</div>
+	
+	</div>	
+	<div id="name-form"></div>
 </body>
 
 </html>
