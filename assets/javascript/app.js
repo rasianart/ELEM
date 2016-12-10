@@ -374,7 +374,7 @@ function storeName() {
 					oneOrTwo = 1;
 					nameFirebase = 'player_1';
 					$('#name-form').html('You have actived player ' + oneOrTwo + ' With the confirmation - ' + name);
-					$('#result').html('Choose a weapon');
+					$('#result').html('Select A Defense');
 					database.ref().child('player_1').set({
 						name: name,
 						choice: player1Storage.playerChoice,
