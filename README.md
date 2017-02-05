@@ -1,4 +1,4 @@
-# ELELM
+# ELEM
 
 Rock Paper Scissors 
 
